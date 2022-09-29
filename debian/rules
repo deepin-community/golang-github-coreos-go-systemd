@@ -1,0 +1,11 @@
+#!/usr/bin/make -f
+
+# TODO figure out what's wrong with the tests and fix it
+override_dh_auto_test:
+	# the upstream tests are a little hairy and obviously systemd-centric
+	# skipping them for now (to be revisited later)
+	#[ ! -S /var/run/dbus/system_bus_socket ] || \
+	#	dh_auto_test -O--buildsystem=golang
+
+%:
+	dh $@ --buildsystem=golang --with=golang
